@@ -39,6 +39,9 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+    <!-- downloadjs -->
+    <script src="http://cdn.rawgit.com/rndme/download/master/download.min.js"></script>
+
 </head>
 
 
@@ -66,8 +69,10 @@
   </div>
 
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <!-- <button id="submitButton" class="btn btn-primary">Submit</button> -->
 </form>
+
+<button id="submitButton" type="button" class="btn btn-primary btn-sm">Small button</button>
 
 
 
@@ -87,7 +92,7 @@
           <!-- graph : start -->
           <h5>Graph</h5>
               <div id="cy-container">
-                <div id="cy"></div>
+                <div id="cyto"></div>
               </div>
 
           <!-- graph : end -->

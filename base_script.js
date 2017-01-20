@@ -2,28 +2,43 @@ var default_colors = ['#fdbb84','#fee8c8','#e34a33', '#3182bd', '#000000']
 //0-4 are greens, 5 is a grey
 //var exp_colorscale = ['#edf8e9', '#bae4b3', '#74c476', '#31a354', '#006d2c', '#bdbdbd']
 
-var cy;
+var cyJson;
 
 $(function(){
 
   var win = $(window);
+
+
 
   win.resize(function() {
     resize();
   });
 
   function resize() {
-    console.log(win.height(), win.innerHeight());
-    $("#cy-container").height(win.innerHeight() - 0);
-    cy.resize();
-    cy.fit();
+    //console.log(win.height(), win.innerHeight());
+    $("#cyto").height(win.innerHeight() - 0);
+    //cy.resize();
+    //cy.fit();
   }
+
+  var submitButton = document.getElementById('submitButton');
+    submitButton.addEventListener('click', function() {
+      cytoscape({
+        container: document.getElementById('cyto'),
+
+        elements: cyJson.elements,
+
+        style: cyJson.style
+
+      });
+  });
 
   setTimeout(resize, 0);
 
 
+
   var cy = cytoscape({
-    container: document.getElementById('cy'),
+    container: document.getElementById('cyto'),
 
     elements: model_elements,
 
@@ -268,6 +283,7 @@ $(function(){
       layout.run();
       resize();
       dragged = false;
+      cyJson = cy.json();
     }
 
     });
@@ -421,6 +437,12 @@ $(function(){
       n.addClass('nAttractor');
     }; // if Attractor
   });
+
+
+  //console.log(cy.json());
+  //console.log(cyto);
+  //download(cy.json(), "dlText.txt");
+
 
 
 // cy.edges().forEach(function(e){
